@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <script defer src="../js/scratch.js"></script>
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+    <div class="row box-shadow-dark" id="links">
+        <div class="col-md-1">
+            <a href="/">home</a>
+        </div>
+        <div class="col-md-1">
+            <a href="login">login</a>
+        </div>
+        <div class="col-md-1">
+            <a href="registration">registration</a>
+        </div>
+        <div class="col-md-1">
+            <a href="imagepost">imagepost</a>
+        </div>
+        <div class="col-md-1">
+            <a href="postimage">postimage</a>
+        </div>
+    </div>
+    <form id="form">
+        <fieldset>
+            <label>Enter Username:</label>
+            <input id="username" type="text"/>
+            <br/>
+            <label>Enter email:</label>
+            <input id="email"/> 
+            <br/>
+            <label>Enter password:</label>
+            <input id="password" type="password"/>
+            <br/>
+            <label>Confirm password:</label>
+            <input id="passConfirm" type="password"/> 
+        </fieldset>
+        <fieldset>
+            Are you 13 or over?
+            <br/>
+            <input type="radio" id="yes" name="age" value="yes" required>
+            <label for="yes">yes</label><br>
+            <input type="radio" id="no" name="age" value="no">
+            <label for="no">no</label>
+            <br/><br/>
+            <input type="checkbox" id="TOS" required>
+            <a href="TOS">TOS and Privacy Rules</a>
+        </fieldset>
+        <div class="flex-row">
+            <button type ="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+        <br>
+        <div id="error"></div>
+        <div id="submitConfirm"></div>
+    </form>
+</body>
+</html>

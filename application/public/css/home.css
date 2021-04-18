@@ -1,0 +1,26 @@
+body {
+    background-color: #ff4655;
+}
+
+#container {
+    width: 1500px;
+    display: grid;
+    margin: auto;
+    gap: 10px 10px 10px 10px;
+    justify-items: center;
+    grid-template-columns: repeat(5, 300px);
+    grid-template-rows: repeat(10, 300px);
+    grid-auto-columns: 300px;
+    grid-auto-rows: 300px
+}
+
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+}
+
+.caption {
+    display: block;
+}

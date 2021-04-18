@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-family: sans-serif;
+    width: 100%;
+    margin: auto;
+}
+
+.flexbox-container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    margin: 20px auto auto;
+    background-color: #ff4655;
+}
+
+a {
+    color: white;
+    font-size: large;
+}
+
+.flexbox-item1{
+    color: white;
+    background-color:rgba(0, 0, 0, 0.616);
+    min-height: 10px;
+    max-height: 40px;
+}
+
+.flexbox-item{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.774);
+}
+
+.title {
+    font-size:xx-large;    
+}
+
+.body-content{
+    background-color: #ff4655;
+}
+.shadow {
+    border: 1px solid #cccccc;
+    box-shadow: 0 2px 2px #eeeeee;
+}
+
+
