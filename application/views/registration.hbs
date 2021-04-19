@@ -2,37 +2,43 @@
     <h1>Registration Form</h1>
 </header>
 
-<form id="form">
-    <fieldset>
-        <label>Enter Username:</label>
-        <input id="username" type="text" />
-        <br />
-        <label>Enter email:</label>
-        <input id="email" />
-        <br />
-        <label>Enter password:</label>
-        <input id="password" type="password" />
-        <br />
-        <label>Confirm password:</label>
-        <input id="passConfirm" type="password" />
-    </fieldset>
-    <fieldset>
-        Are you 13 or over?
-        <br />
-        <input type="radio" id="yes" name="age" value="yes" required>
-        <label for="yes">yes</label><br>
-        <input type="radio" id="no" name="age" value="no">
-        <label for="no">no</label>
-        <br /><br />
-        <input type="checkbox" id="TOS" required>
-        <a href="TOS">TOS and Privacy Rules</a>
-    </fieldset>
-    <div class="flex-row">
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-    </div>
-    <br>
-    <div id="error"></div>
-    <div id="submitConfirm"></div>
-</form>
+<div class="content">
+    <form>
+        <fieldset>
+            <div class="input-box">
+                <label>Enter Username:</label>
+                <input id="username" type="text" />
+            </div>
+            <div class="input-box">
+                <label>Enter email:</label>
+                <input id="email" />
+            </div>
+            <div class="input-box">
+                <label>Enter password:</label>
+                <input id="password" type="password" />
+            </div>
+            <div class="input-box">
+                <label>Confirm password:</label>
+                <input id="passConfirm" type="password" />
+            </div>
+            <div class="input-box">
+                Are you 13 or over?<br>
+                <input type="radio" id="yes" name="age" value="yes" required>
+                <label for="yes">yes</label><br>
+                <input type="radio" id="no" name="age" value="no">
+                <label for="no">no</label>
+            </div>
+            <div class="input-box">
+                <input type="checkbox" id="TOS" required>
+                <a href="TOS">TOS and Privacy Rules</a>
+            </div>
+            <div class="input-box">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+            <div id="error"></div>
+            <div id="submitConfirm"></div>
+        </fieldset>
+    </form>
+</div>
 <script defer src="/public/js/scratch.js"></script>
