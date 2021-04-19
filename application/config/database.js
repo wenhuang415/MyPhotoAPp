@@ -4,9 +4,9 @@ const pool = mysql.createPool({
     connectionLimit: 50,
     host: 'localhost',
     user: 'codyhuang',
-    password: 'Wrestling415',
+    password: 'Wrestling415!',
     database: 'csc317db',
-
+    //debug: true
 });
 
 const promisePool = pool.promise();
