@@ -3,11 +3,7 @@
     text-align: center;
 }
 
-body {
-    font-family: sans-serif;
-    width: 100%;
-    margin: auto;
-}
+
 
 .flexbox-container {
     display: grid;
@@ -17,10 +13,6 @@ body {
     background-color: #ff4655;
 }
 
-a {
-    color: white;
-    font-size: large;
-}
 
 .flexbox-item1{
     color: white;
