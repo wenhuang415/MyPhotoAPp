@@ -1,25 +1,25 @@
 <header>
     <h1>Registration Form</h1>
 </header>
-
+<script defer src="/public/js/scratch.js"></script>
 <div class="content">
-    <form>
+    <form method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
         <fieldset>
             <div class="input-box">
                 <label>Enter Username:</label>
-                <input id="username" type="text" />
+                <input id="username" type="text" required name="username" />
             </div>
             <div class="input-box">
                 <label>Enter email:</label>
-                <input id="email" />
+                <input id="email" name="email" required/>
             </div>
             <div class="input-box">
                 <label>Enter password:</label>
-                <input id="password" type="password" />
+                <input id="password" type="password" name="password" required/>
             </div>
             <div class="input-box">
                 <label>Confirm password:</label>
-                <input id="passConfirm" type="password" />
+                <input id="passConfirm" type="password" name="cpassword" required/>
             </div>
             <div class="input-box">
                 Are you 13 or over?<br>
@@ -41,4 +41,3 @@
         </fieldset>
     </form>
 </div>
-<script defer src="/public/js/scratch.js"></script>
