@@ -6,16 +6,21 @@
     <nav id="nav-bar">
         <ul class="nav_links">
             <a href="/"><button>home</button></a>
-            <a href="login"><button>login</button></a>
-            <a href="registration"><button>registration</button></a>
-            <a href="imagepost"><button>imagepost</button></a>
-            <a href="postimage"><button>postimage</button></a>
+            {{#if logged}}
+            {{else}}
+            <a href="registration"><button>Registration</button></a>
+            {{/if}} 
+            <a href="imagepost"><button>Imagepost</button></a>
+            <a href="postimage"><button>Postimage</button></a>
         </ul>
     </nav>
     <div>
     <input id="search-bar" type=text/>
     <a class="cta" href="#"><button>Search</button></a>
     </div>
-
-    
+    {{#if logged}}
+    <a href="users/logout" id="logoutButton"><button>Log Out</button></a>
+    {{else}}
+    <a href="Login"><button>Log In</button></a>
+    {{/if}}
 </header>

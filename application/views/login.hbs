@@ -3,18 +3,18 @@
 </header>
 
 <div class="content">
-    <form id="login-form">
+    <form id="login-form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
         <fieldset>
             <div class="input-box">
                 <span for="username" class="txt-label">Username</span>
-                <input id="username" class="txt-label" type=text placeholder="Username" required />
+                <input id="username" class="txt-label" type=text placeholder="Username" required name="username"/>
             </div>
             <div class="input-box">
                 <span class="txt-label" for="passwd">Password</span>
-                <input id="passwd" type=password placeholder="Password" required>
+                <input id="passwd" type=password placeholder="Password" required name="password">
             </div>
             <div class="button">
-                <button type="submit">Submit</button>
+                <button type="submit">Log in</button>
                 <button type="reset">Reset</button>
             </div>
         </fieldset>

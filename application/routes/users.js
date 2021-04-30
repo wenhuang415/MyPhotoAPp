@@ -4,6 +4,7 @@ var db = require('../conf/database');
 var errorPrint = require('../helpers/debug/debugprinters').errorPrint;
 var successPrint = require('../helpers/debug/debugprinters').successPrint;
 var requestPrint = require('../helpers/debug/debugprinters').requestPrint;
+var bcrypt = require('bcrypt');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -31,8 +32,7 @@ router.post('/register', (req, res, next) => {
  })
  .then(([results, fields]) => {
   if(results && results.length == 0) {
-    let baseSQL = "INSERT INTO users (username, email, password, created) VALUES (?,?,?,now());"
-    return db.execute(baseSQL,[username, email, password]) 
+    return bcrypt.hash(password,15);
   } else {
      throw new UserError(
        "Registration Failed: Email already exists",
@@ -40,6 +40,10 @@ router.post('/register', (req, res, next) => {
        200
      );
    }
+ })
+ .then((hashedPassword) => {
+    let baseSQL = "INSERT INTO users (username, email, password, created) VALUES (?,?,?,now());"
+    return db.execute(baseSQL,[username, email, hashedPassword]) 
  })
  .then(([results, fields]) => {
   if(results && results.affectedRows){
@@ -65,4 +69,46 @@ router.post('/register', (req, res, next) => {
  });
 });
 
+//user log in
+router.post('/login', (req, res, next) => {
+  let username =req.body.username;
+  let password = req.body.password;
+  /**
+   * do server validation
+   */
+  let baseSQL = "SELECT id,username, password FROM users WHERE username=?;";
+  let userId;//userid for posts
+  db.execute(baseSQL,[username])
+  .then(([results, fields]) => {
+    if(results && results.length == 1) {
+      let hashedPassword = results[0].password;
+      userId = results[0].id;
+      return bcrypt.compare(password, hashedPassword)
+    }else{
+      throw new UserError("invalid username and/or password", "/login", 200);
+    }
+  })
+  .then((passwordsMatched) => {
+    if(passwordsMatched){
+      //sessions to track log in
+      successPrint(`User ${username} is logged in`);
+      req.session.username = username;
+      req.session.userId = userId;
+      res.locals.logged = true;
+      res.render('index');
+    }else{
+      throw new UserError("Invalid username and/or password", "\login", 200);
+    }
+  })
+  .catch((err) => {
+    errorPrint("user login failed");
+    if(err instanceof UserError){
+      errorPrint(err.getMessage());
+      res.status(err.getStatus());
+      res.redirect('/login');
+    } else{
+      next(err);
+    }
+  })
+})
 module.exports = router;

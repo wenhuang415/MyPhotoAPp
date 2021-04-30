@@ -3,6 +3,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var handlebars = require('express-handlebars');
+var sessions = require('express-session');
+var mysqlSession = require("express-mysql-session")(sessions);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,6 +32,22 @@ app.engine(
         }
     })
 );
+
+//configure sessions
+var mysqlSessionStore = new mysqlSession(
+    {
+        /*using default options */
+    },
+    require('./conf/database')
+);
+app.use(sessions({
+    key: "csid",//key used for cookie for front end
+    secret: "this is a secret from csc317",//used to sign cookie
+    store: mysqlSessionStore,
+    resave: false,
+    saveUninitialized: false//don't save sessions that we don't initialize ourselves
+}));
+
 app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
@@ -42,8 +60,18 @@ app.use((req, res, next) => {
     next();
 });
 
+//middleware for log out button to be consistent with login
+app.use((req, res, next) => {
+    console.log(req.session);
+    if(req.session.username){
+        res.locals.logged = true;
+    }
+    next();
+})
+
 app.use('/', indexRouter);
-app.use('/dbtest',dbRouter);
+//for testing
+//app.use('/dbtest',dbRouter);
 app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
