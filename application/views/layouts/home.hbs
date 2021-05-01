@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script defer src="/public/js/scratch.js"></script>
+    <script defer src="/public/js/frontend.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="container">
+        {{log this}}
         {{> header}}
+        {{#if (emptyObject messages)}}
+        {{> flashmessage}}
+        {{/if}}
         {{{body}}}
         {{> footer}}
     </div>
+    {{#if logged}}
+        <script>
+            let ele = document.getElementById('logoutButton');
+            if(ele) {
+                ele.onclick = (even) => {
+                    fetch('/users/logout',{//fetches from users.js
+                        method:"POST"
+                    })
+                    .then((data) => {
+                        location.replace('/');
+                    })
+                }
+            }
+         </script>   
+    {{/if}}
 </body>
 </html>

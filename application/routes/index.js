@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var isLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,7 +20,9 @@ router.get('/imagepost',(req,res,next) => {
   res.render("imagepost", {title:"View an Image"});
 });
 
-router.get('/postimage',(req,res,next) => {
+//middleware to protect postimage if not logged in
+router.use('/postimage', isLoggedIn);
+router.get('/postimage', (req,res,next) => {
   res.render("postimage", {title:"Post an Image"});
 });
 

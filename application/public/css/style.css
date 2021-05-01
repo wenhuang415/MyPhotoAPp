@@ -23,8 +23,9 @@
     color: lightblue;
 }
 
-button {
+html button {
     padding: 9px 25px;
+    color: white;
     background-color: rgba(0,100,170,1);
     border: none;
     border-radius: 50px;
@@ -32,11 +33,11 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+html button:hover {
     background-color: rgba(0,140,170,0.8);
 }
 
-body {
+html body {
     background-color: #27272c;
     color:rgb(103, 190, 253)
 }
@@ -45,6 +46,7 @@ header {
     color:#7f35c0;
     text-align: center;
 }
+
 
 #footer a {
     color:#ab79d6 ;
@@ -60,4 +62,15 @@ header {
     height: 100%;
     justify-content: center;
     align-items: center;  
+}
+
+#flash-message {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,0);
+}
+
+#flash-message div {
+    text-align: center;
 }

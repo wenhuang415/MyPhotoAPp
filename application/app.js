@@ -5,10 +5,12 @@ var logger = require('morgan');
 var handlebars = require('express-handlebars');
 var sessions = require('express-session');
 var mysqlSession = require("express-mysql-session")(sessions);
+var flash = require('express-flash');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var dbRouter = require('./routes/dbtest');
+//var dbRouter = require('./routes/dbtest');
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
 var successPrint = require('./helpers/debug/debugprinters').successPrint;
 var requestPrint = require('./helpers/debug/debugprinters').requestPrint;
@@ -28,8 +30,10 @@ app.engine(
         extname: ".hbs",
         defaultLayout: "home",
         helpers: {
-
-        }
+            emptyObject: (obj) => {//don't show flash object if there's nothing in it
+                return !(obj.constructor === Object && Object.keys(obj).length == 0);
+            }
+        },
     })
 );
 
@@ -47,6 +51,9 @@ app.use(sessions({
     resave: false,
     saveUninitialized: false//don't save sessions that we don't initialize ourselves
 }));
+
+//express flash middleware
+app.use(flash());
 
 app.set("view engine", "hbs");
 app.use(logger('dev'));

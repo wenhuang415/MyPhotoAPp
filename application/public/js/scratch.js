@@ -6,7 +6,6 @@ const form = document.getElementById('form')
 const passConfirm = document.getElementById('passConfirm')
 const errorElement = document.getElementById('error')
 
-
 form.addEventListener('submit', (e) => {
     let messages = []
 
@@ -58,5 +57,5 @@ form.addEventListener('submit', (e) => {
     if(messages.length == 0) {
         alert("Form was submitted!")
     }
-    
-})
+});
+
