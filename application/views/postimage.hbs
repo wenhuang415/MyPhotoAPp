@@ -3,16 +3,16 @@
 </header>
 
 <div class="content">
-    <form id="post-form">
+    <form id="post-form" method="POST" enctype="multipart/form-data" action='/posts/createPost'>
         <fieldset>
             <label>Post title</label>
-            <input type="text" />
+            <input type="text" name="title" />
             <br />
             <label>Post description</label>
-            <input type="text" />
+            <input type="text" name="description"/>
             <br />
             <label>Insert image</label>
-            <input type="file" />
+            <input type="file" name="uploadImage" required />
         </fieldset>
         <input type="checkbox" id="TOS">
         <a href="TOS">Accept Use Policy for uploading images</a>
