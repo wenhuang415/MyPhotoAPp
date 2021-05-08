@@ -4,6 +4,8 @@ var db = require('../conf/database');
 var errorPrint = require('../helpers/debug/debugprinters').errorPrint;
 var successPrint = require('../helpers/debug/debugprinters').successPrint;
 var requestPrint = require('../helpers/debug/debugprinters').requestPrint;
+var UserError = require('../helpers/error/UserError');
+var PostError = require('../helpers/error/PostError');
 var bcrypt = require('bcrypt');
 
 
@@ -107,7 +109,7 @@ router.post('/login', (req, res, next) => {
       errorPrint(err.getMessage());
       req.flash('error',err.getMessage());//get error message from object
       res.status(err.getStatus());
-      res.redirect('/login');
+      res.redirect("/login");
     } else{
       next(err);
     }
