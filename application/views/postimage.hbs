@@ -1,15 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <header>
     <h1>Upload images</h1>
 </header>
 
 <div class="content">
-    <form id="post-form" method="POST" enctype="multipart/form-data" action='/posts/createPost'>
+    <form id="post-form" method="POST" enctype="multipart/form-data">
         <fieldset>
             <label>Post title</label>
-            <input type="text" name="title" />
+            <input id="post-title" type="text" name="title" />
             <br />
             <label>Post description</label>
-            <input type="text" name="description"/>
+            <input id="post-description" type="text" name="description"/>
             <br />
             <label>Insert image</label>
             <input type="file" name="uploadImage" required />
@@ -23,3 +24,21 @@
         </div>
     </form>
 </div>
+<script>
+    const _form = document.getElementById('post-form');
+    _form.onsubmit = function(event) {
+        event.preventDefault();//prevent defualt behavior
+        let _body = new FormData(_form);
+        
+        axios('/posts/createPost', {//send request to server asynchronously
+            data:_body,
+            method: "POST"
+        })
+        .then((data) => {//action with response
+            console.log(data.data);
+            alert(data.data.message);
+            location.replace(data.data.redirect);
+        })
+        .catch(err => console.log(err));
+    }
+</script>
