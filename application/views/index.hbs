@@ -2,6 +2,8 @@
     <h1>Home Page</h1>
 </header>
 
-<div class="content">
-
+<div class="content" id="mainContent">
+    {{#each results}}
+        {{> card this}}
+    {{/each}}
 </div>
