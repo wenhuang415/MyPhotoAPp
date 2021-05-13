@@ -64,5 +64,42 @@ router.post('/createPost', uploader.single("uploadImage"),(req, res, next) => {
         }
     })
 });
+//localhost:3000/posts/search?search=value
+router.get('/search', (req, res, next) => {
+    let searchTerm = req.query.search;
+    if(!searchTerm){
+        res.send({
+            resultsStatus: "info",
+            message: "No search term given",
+            results: []
+        });
+    }else{
+        let baseSQL ="SELECT id, title, description, thumbnail, concat_ws(' ',title, description)\
+        FROM posts\
+        WHERE title LIKE ? OR description LIKE ?;";
+        let sqlReadySearchTerm = "%"+searchTerm+"%"
+        let sqlReadySearchTerm2 ="%"+searchTerm+"%";
+        db.execute(baseSQL, [sqlReadySearchTerm,sqlReadySearchTerm2])
+        .then(([results, fields]) => {
+            if(results && results.length){
+                res.send({
+                    resultsStatus:"info",
+                    message: `${results.length} results found`,
+                    results: results
+                });
+            }else{//no matching posts
+                db.query('SELECT id, title, description, thumbnail, created FROM posts ORDER BY created DESC LIMIT 8',[])
+                .then(([results, fields]) => {
+                    res.send({
+                        resultsStatus:"info",
+                        message:"No results found, showing 8 most recent posts",
+                        results: results
+                    });
+                })
+            }
+        })
+        .catch((err) => next(err))
+    }
+});
 
 module.exports = router;

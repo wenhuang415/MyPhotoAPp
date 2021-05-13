@@ -1,14 +1,27 @@
 <header>
     <h1>View posted images</h1>
 </header>
-<div class="content">
-    <div class="input-box">
-        <section class="title">Title</section>
-        <section id="image">
-            <img src="https://steamuserimages-a.akamaihd.net/ugc/761597617755839319/953D519B10EC61B89C6386E8F96A639889A3B7A9/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
-                alt="This was a fake image">
-        </section>
-        <section id="author">Author</section>
-        <section id="creationTime">Creation time</section>
+<div id="post-container">
+    <img id="image-post-image" src="/{{currentPost.photopath}}">
+    <div id="info-message-grid">
+        <div id="info">
+            <header id="image-post-title">
+                <h2 id="image-post-title-text">{{currentPost.title}}</h2>
+            </header>
+            <div id="image-post-author">{{currentPost.username}}</div>
+            <div id="image-post-date">{{currentPost.created}}</div>
+            <div id="image-post-desc">{{currentPost.description}}</div>
+        </div>
+        <div id="messages">
+            <header id="comment-title">
+                <h2>Comments</h2>
+            </header>
+            <div id="message-list">
+            </div>
+            <div id="comment-box">
+                <textarea id="comment-box-text"></textarea>
+                <i id="comment-box-button"></i>
+            </div>
+        </div>
     </div>
 </div>
