@@ -69,6 +69,11 @@ header {
     left: 50%;
     top: 25%;
     transform: translate(-50%,0);
+    z-index: 9999;
+}
+
+#flash-message div {
+    text-align: center;
 }
 
 #flash-message div {
