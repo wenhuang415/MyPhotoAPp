@@ -1,4 +1,4 @@
-const name = document.getElementById('username')
+const username = document.getElementById('username')
 const email = document.getElementById('email')
 email.setAttribute('type','email')
 const password = document.getElementById('password')
@@ -11,12 +11,12 @@ form.addEventListener('submit', (e) => {
 
     //checks if username starts with alphabet
     var usrname= /^[A-Za-z]/;
-    if(!name.value.match(usrname)){
+    if(!username.value.match(usrname)){
         messages.push('Username must start with alphabet.')
     }
 
     //check username length
-    if (name.value.length < 3) {
+    if (username.value.length < 3) {
         messages.push('Username must be 3 or more characters')
     }
 
@@ -49,6 +49,7 @@ form.addEventListener('submit', (e) => {
         messages.push('Passwords do not match!')
     }
 
+    
     if(messages.length > 0) {  
         e.preventDefault()
         errorElement.innerText = messages.join('\n ')
