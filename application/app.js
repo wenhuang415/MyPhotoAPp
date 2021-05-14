@@ -70,7 +70,6 @@ app.use((req, res, next) => {
 
 //middleware for log out button to be consistent with login
 app.use((req, res, next) => {
-    console.log(req.session);
     if(req.session.username){
         res.locals.logged = true;
     }
