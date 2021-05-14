@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../conf/database');
 var PostModel = require('../models/Posts');
 const { successPrint, errorPrint } = require('../helpers/debug/debugprinters');
 var sharp = require('sharp');
 var multer = require('multer');
 var crypto = require('crypto');//to mangle file names
 var PostError = require('../helpers/error/PostError');
-const { response } = require('../app');
 
 
 var storage = multer.diskStorage({
