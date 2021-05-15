@@ -155,6 +155,7 @@ header {
 }
 
 #comment-box-text {
+    color: rgb(163, 163, 163);
     padding-top: 10px;
     width: 95%;
 }
