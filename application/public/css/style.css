@@ -141,13 +141,14 @@ header {
 
 #messages {
     grid-area: messages;
-    overflow-y: auto;
+    overflow-y: scroll;
     display: flex;
     flex-flow: column-reverse nowrap;
     scroll-behavior: smooth;
 }
 
 #comment-box {
+    max-height: 99%;
     display: grid;
     grid-template-columns: 8fr 1fr;
     grid-template-rows: 1fr;

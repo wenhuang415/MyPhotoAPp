@@ -13,11 +13,9 @@
     </div>
     <div id="comment-container">
         <div id="messages">
-            <div id="message-">
-                <strong class="author-text">@myuser12</strong>
-                <span class="date-posted">30 minutes</span>
-                <div class="comment-text">This is a test for styling</div>
-            </div>
+            {{#each currentPost.comments}}
+                {{> comment this}}
+            {{/each}}
         </div>
         <div id="comment-box">
             <textarea id="comment-box-text"></textarea>
@@ -25,3 +23,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('span[class=date-posted').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        });
+    });
+</script>

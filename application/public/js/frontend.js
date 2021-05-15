@@ -30,7 +30,7 @@ function createCard(postData){
     <div class="card-body">
         <p class="card-title">${postData.title}</p>
         <p class="card-text">${postData.description}</p>
-        <a href="/post/${postData.id}" class="anchor-buttons">Post Details</a>
+        <a href="/posts/${postData.id}" class="anchor-buttons">Post Details</a>
     </div>
 </div>`;
 }
