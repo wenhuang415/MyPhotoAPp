@@ -2,26 +2,22 @@
     <h1>View posted images</h1>
 </header>
 <div id="post-container">
-    <img id="image-post-image" src="/{{currentPost.photopath}}">
-    <div id="info-message-grid">
-        <div id="info">
-            <header id="image-post-title">
-                <h2 id="image-post-title-text">{{currentPost.title}}</h2>
-            </header>
-            <div id="image-post-author">{{currentPost.username}}</div>
-            <div id="image-post-date">{{currentPost.created}}</div>
-            <div id="image-post-desc">{{currentPost.description}}</div>
+    <div id="photo-container">
+        <h2 id="post-title">{{currentPost.title}}</h2>
+        <div id="psot-info">
+            <div id="image-post-author">Posted by: {{currentPost.username}}</div>
+            <div id="image-post-date">Posted on: {{currentPost.created}}</div>
         </div>
-        <div id="messages">
-            <header id="comment-title">
-                <h2>Comments</h2>
-            </header>
-            <div id="message-list">
-            </div>
-            <div id="comment-box">
-                <textarea id="comment-box-text"></textarea>
-                <i id="comment-box-button"></i>
-            </div>
-        </div>
+        <img id="image-post-image" src="/{{currentPost.photopath}}">
+        <div id="image-post-desc">{{currentPost.description}}</div>
+    </div>
+</div>
+<div id="comment-container">
+    <div id="messages">
+        
+    </div>
+    <div id="comment-box">
+        <textarea id="comment-box-text"></textarea>
+        <i id="comment-box-button"></i>
     </div>
 </div>
