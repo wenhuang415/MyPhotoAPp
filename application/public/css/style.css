@@ -92,3 +92,112 @@ header {
     grid-auto-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
 }
+
+#post-container {
+    grid-area: content;
+    justify-self: center;
+    padding-top: .35em;
+    padding-bottom: .35em;
+    display: grid;
+    grid-gap: .2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "photoinfo comments"
+    "photoinfo comments";
+}
+
+#photo-container {
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #9556ae;
+    background-color: #5a4364;
+    border-radius: .35rem;
+    margin-right: 5px;
+}
+
+
+#comment-container {
+    margin-left: 5px;
+    display: grid;
+    padding-right: 3%;
+    padding-left: 3%;
+    grid-area: comments;
+    grid-template-rows: auto 75px;
+    grid-template-columns: 1fr;
+    gap: .2rem;
+    align-items: top;
+    grid-template-areas:
+    "messages"
+    "comment-box";
+    max-height: 80vh;
+    background-color: #60416d;
+    border: 1px solid #5a4364;
+    border-radius: .35rem;
+}
+
+#messages {
+    grid-area: messages;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+}
+
+#comment-box {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#comment-box-text {
+    padding-top: 10px;
+    width: 95%;
+}
+
+#comment-submit {
+    margin-top: 30%;
+    max-height: 30px;
+    max-width: 90px;
+    justify-self: end;
+}
+
+div[id^=message-] {
+    display: grid;
+    grid-template-rows: .3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: .2em;
+    padding: .25rem;
+    margin: .2rem;
+    font-size: 1.5rem;
+    border: 0.1rem solid #000000;
+    background-color: rgb(104, 158, 184);
+    color: black;
+    border-radius: .25rem;
+    grid-template-areas:
+    "author created"
+    "comment comment";
+}
+
+.author-text {
+    grid-area: author;
+    justify-self: start;
+    color: rgb(124, 48, 160);
+}
+
+.comment-text {
+   grid-area: comment;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-height: 50px;
+   min-height: 50px;
+
+}
+
+.date-posted {
+    grid-area: created;
+    justify-self: end;
+}

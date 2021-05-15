@@ -4,20 +4,24 @@
 <div id="post-container">
     <div id="photo-container">
         <h2 id="post-title">{{currentPost.title}}</h2>
-        <div id="psot-info">
+        <div id="post-info">
             <div id="image-post-author">Posted by: {{currentPost.username}}</div>
             <div id="image-post-date">Posted on: {{currentPost.created}}</div>
         </div>
         <img id="image-post-image" src="/{{currentPost.photopath}}">
         <div id="image-post-desc">{{currentPost.description}}</div>
     </div>
-</div>
-<div id="comment-container">
-    <div id="messages">
-        
-    </div>
-    <div id="comment-box">
-        <textarea id="comment-box-text"></textarea>
-        <i id="comment-box-button"></i>
+    <div id="comment-container">
+        <div id="messages">
+            <div id="message-">
+                <strong class="author-text">@myuser12</strong>
+                <span class="date-posted">30 minutes</span>
+                <div class="comment-text">This is a test for styling</div>
+            </div>
+        </div>
+        <div id="comment-box">
+            <textarea id="comment-box-text"></textarea>
+            <button id="comment-submit">Submit</button>
+        </div>
     </div>
 </div>
