@@ -203,3 +203,42 @@ div[id^=message-] {
     grid-area: created;
     justify-self: end;
 }
+
+.card-title{
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    border-radius: .25em;
+    border: 1px solid purple;
+    max-height: 280px;
+    min-height: 280px;
+    background-color: rgba(75, 41, 85, 0.561);
+}
+
+.registration-form {
+    display: grid;
+    text-align: center;
+    border: 1px solid purple;
+    background-color: rgba(75, 41, 85, 0.561);
+}
+
+.loginForm {
+    display: grid;
+    text-align: center;
+    border: 1px solid purple;
+    background-color: rgba(75, 41, 85, 0.561);
+}
+
+.postForm {
+    display: grid;
+    border: 1px solid purple;
+    background-color: rgba(75, 41, 85, 0.561);
+}
