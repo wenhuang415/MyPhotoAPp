@@ -18,6 +18,7 @@ UserModel.create = (username, password, email) => {
         .catch((err) => Promise.reject(err));
 }
 
+
 UserModel.usernameExists = (username) => {
     return db.execute("SELECT * FROM users WHERE username=?", [username])
         .then(([results, fields]) => {

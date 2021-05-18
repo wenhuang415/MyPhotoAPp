@@ -14,9 +14,6 @@ router.post('/register', (req, res, next) => {
   let email = req.body.email;
   let password = req.body.password;
   let cpassword = req.body.password;
-  /**
-  do server side validation
-  */
   UserModel.usernameExists(username)
     .then((userDoesNameExists) => {
       if (userDoesNameExists) {
@@ -70,9 +67,6 @@ router.post('/register', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
-  /**
-   * do server validation
-   */
   UserModel.authenticate(username, password)
     .then((loggedUserId) => {
       if (loggedUserId > 0) {

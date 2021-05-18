@@ -55,8 +55,5 @@ form.addEventListener('submit', (e) => {
         errorElement.innerText = messages.join('\n ')
     }
 
-    if(messages.length == 0) {
-        alert("Form was submitted!")
-    }
 });
 
