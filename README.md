@@ -1,4 +1,4 @@
-# CSC 317 Term Project
+
 
 ## Purpose
 
@@ -7,14 +7,6 @@ The purpose of this repository is to store all the code for your web application
 Please follow the instructions below and fill in the information requested when prompted.
 
 ## Student Information
-
-|               | Information   |
-|:-------------:|:-------------:|
-| Student Name  | Cody Huang     |
-| Student ID    | 917041832       |
-| Student Email | whuang17@mail.sfsu.edu    |
-
-
 
 # Build/Run Instructions
 
